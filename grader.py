@@ -2,29 +2,6 @@ import io, sys, unittest
 from unittest.mock import patch
 from types import ModuleType
 from nbformat import read
-from IPython import get_ipython
-
-class IpyExit(SystemExit):
-    """Exit Exception for IPython.
-
-    Exception temporarily redirects stderr to buffer.
-    """
-    def __init__(self):
-        # print("exiting")  # optionally print some message to stdout, too
-        # ... or do other stuff before exit
-        sys.stderr = io.StringIO()
-
-    def __del__(self):
-        sys.stderr.close()
-        sys.stderr = sys.__stderr__  # restore from backup
-
-def ipy_exit():
-    raise IpyExit
-
-if get_ipython():    # ...run with IPython
-    exit = ipy_exit  # rebind to custom exit
-else:
-    exit = exit      # just make exit importable
 
 def get_source(exercise):
     chapter = exercise.split()[1].split('.')[0]
