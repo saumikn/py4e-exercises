@@ -158,7 +158,6 @@ class Exercise(unittest.TestCase):
                         exp_input_num=1,
                         exp_output="Fahrenheit: 32.0\n",
                         input_val='0')
-
         self.checkPrint(exercise='Exercise 2.5',
                         mock_input=mock_input,
                         exp_input_num=2,
@@ -175,7 +174,6 @@ class Exercise(unittest.TestCase):
                         exp_input_num=2,
                         exp_output="Pay: 96.25\n",
                         input_val="Hours='35' and Rate='2.75'")
-
         self.checkPrint(exercise='Exercise 3.1',
                         mock_input=mock_input,
                         exp_input_num=4,
@@ -189,20 +187,16 @@ class Exercise(unittest.TestCase):
                         exp_input_num=2,
                         exp_output="Pay: 96.25\n",
                         input_val="'35' and '2.75'")
-
         self.checkPrint(exercise='Exercise 3.2',
                         mock_input=mock_input,
                         exp_input_num=4,
                         exp_output="Pay: 475.0\n",
                         input_val="'45' and '10'")
-
         self.checkPrint(exercise='Exercise 3.2',
                         mock_input=mock_input,
                         exp_input_num=6,
                         exp_output="Error, please enter numeric input\n",
                         input_val="'20' and 'nine'")
-
-        
         self.checkPrint(exercise='Exercise 3.2',
                         mock_input=mock_input,
                         exp_input_num=7,
@@ -318,20 +312,16 @@ class Exercise(unittest.TestCase):
                         exp_input_num=2,
                         exp_output="Pay: 96.25\n",
                         input_val="'35' and '2.75'")
-
         self.checkPrint(exercise='Exercise 4.6',
                         mock_input=mock_input,
                         exp_input_num=4,
                         exp_output="Pay: 475.0\n",
                         input_val="'45' and '10'")
-
         self.checkPrint(exercise='Exercise 4.6',
                         mock_input=mock_input,
                         exp_input_num=6,
                         exp_output="Error, please enter numeric input\n",
                         input_val="'20' and 'nine'")
-
-        
         self.checkPrint(exercise='Exercise 4.6',
                         mock_input=mock_input,
                         exp_input_num=7,
@@ -472,12 +462,12 @@ class Exercise(unittest.TestCase):
 
     def test_exercise_6_4(self):
         self.checkPrint(exercise='Exercise 6.4',
-                        exp_output="3",
+                        exp_output="3\n",
                         error='Wrong Answer!')
 
     def test_exercise_6_5(self):
         self.checkPrint(exercise='Exercise 6.5',
-                        exp_output="0.8475",
+                        exp_output="0.8475\n",
                         error='Wrong Answer!')
 
     ################################
@@ -490,7 +480,6 @@ class Exercise(unittest.TestCase):
         for line in fhand:
             exp_output += (line.rstrip().upper() + '\n')
         fhand.close()
-
         self.checkPrint(exercise='Exercise 7.1',
                         mock_input=mock_input,
                         exp_input_num=1,
@@ -504,7 +493,6 @@ class Exercise(unittest.TestCase):
                         exp_input_num=1,
                         exp_output='0.75072\n',
                         input_val='mbox-short.txt')
-
         self.checkPrint(exercise='Exercise 7.2',
                         mock_input=mock_input,
                         exp_input_num=2,
@@ -519,13 +507,11 @@ class Exercise(unittest.TestCase):
                         exp_input_num=1,
                         exp_output='There were 1797 subject lines in mbox.txt\n',
                         input_val='mbox-short.txt')
-
         self.checkPrint(exercise='Exercise 7.3',
                         mock_input=mock_input,
                         exp_input_num=2,
                         exp_output='File cannot be opened: missing.tyxt\n',
                         input_val='mbox.txt')
-
         self.checkPrint(exercise='Exercise 7.3',
                         mock_input=mock_input,
                         exp_input_num=3,
@@ -544,7 +530,6 @@ class Exercise(unittest.TestCase):
                         exp_output=[8,1,4,9,6,0,3,5],
                         input_val='2,8,1,4,9,6,0,3,5,7',
                         output_type=list)
-
     @patch('builtins.input', side_effect=['2,8,1,4,9,6,0,3,5,7'])
     def test_exercise_8_1_2(self, mock_input):
         self.checkPrint(exercise='Exercise 8.1.2',
@@ -631,7 +616,6 @@ class Exercise(unittest.TestCase):
                         exp_input_num=1,
                         exp_output='cwen@iupui.edu 5',
                         input_val='mbox-short.txt')
-
         self.checkPrint(exercise='Exercise 9.4',
                         mock_input=mock_input,
                         exp_input_num=2,
@@ -658,7 +642,6 @@ class Exercise(unittest.TestCase):
                         exp_input_num=1,
                         exp_output='cwen@iupui.edu 5',
                         input_val='mbox-short.txt')
-
         self.checkPrint(exercise='Exercise 10.1',
                         mock_input=mock_input,
                         exp_input_num=2,
