@@ -83,6 +83,10 @@ class Exercise(unittest.TestCase):
             if output_type == list or output_type == dict:
                 self.assertEqual(eval(self.temp_out.getvalue()),exp_output)
             elif output_type == "dict_set":
+                # print(exp_output, file=sys.stderr)
+                # print(self.temp_out.getvalue(), file=sys.stderr)
+                # print(eval(self.temp_out.getvalue()), file=sys.stderr)
+                # print(set(eval(self.temp_out.getvalue())), file=sys.stderr)
                 self.assertEqual(set(eval(self.temp_out.getvalue())), exp_output)
             else:
                 self.assertEqual(self.temp_out.getvalue(),exp_output)
@@ -522,21 +526,21 @@ class Exercise(unittest.TestCase):
     ########## Chapter 08 ##########
     ################################
 
-    @patch('builtins.input', side_effect=['2,8,1,4,9,6,0,3,5,7'])
+    @patch('builtins.input', side_effect=['8,1,hello,9,world'])
     def test_exercise_8_1_1(self, mock_input):
         self.checkPrint(exercise='Exercise 8.1.1',
                         mock_input=mock_input,
                         exp_input_num=1,
-                        exp_output=[8,1,4,9,6,0,3,5],
-                        input_val='2,8,1,4,9,6,0,3,5,7',
+                        exp_output=['1','hello','9'],
+                        input_val='8,1,hello,9,world',
                         output_type=list)
-    @patch('builtins.input', side_effect=['2,8,1,4,9,6,0,3,5,7'])
+    @patch('builtins.input', side_effect=['8,1,hello,9,world'])
     def test_exercise_8_1_2(self, mock_input):
         self.checkPrint(exercise='Exercise 8.1.2',
                         mock_input=mock_input,
                         exp_input_num=1,
-                        exp_output=[8,1,4,9,6,0,3,5],
-                        input_val='2,8,1,4,9,6,0,3,5,7',
+                        exp_output=['1','hello','9'],
+                        input_val='8,1,hello,9,world',
                         output_type=list)
 
     def test_exercise_8_2_1(self):
@@ -606,7 +610,7 @@ class Exercise(unittest.TestCase):
                         mock_input=mock_input,
                         exp_input_num=1,
                         exp_output={'gopal.ramasammycook@gmail.com': 1, 'louis@media.berkeley.edu': 3,'cwen@iupui.edu': 5, 'antranig@caret.cam.ac.uk': 1,'rjlowe@iupui.edu': 2, 'gsilver@umich.edu': 3,'david.horwitz@uct.ac.za': 4, 'wagnermr@iupui.edu': 1,'zqian@umich.edu': 4, 'stephen.marquard@uct.ac.za': 2,'ray@media.berkeley.edu': 1},
-                        input_val='words.txt',
+                        input_val='mbox-short.txt',
                         output_type=dict)
 
     @patch('builtins.input', side_effect=['mbox-short.txt', 'mbox.txt'])
@@ -614,12 +618,12 @@ class Exercise(unittest.TestCase):
         self.checkPrint(exercise='Exercise 9.4',
                         mock_input=mock_input,
                         exp_input_num=1,
-                        exp_output='cwen@iupui.edu 5',
+                        exp_output='cwen@iupui.edu 5\n',
                         input_val='mbox-short.txt')
         self.checkPrint(exercise='Exercise 9.4',
                         mock_input=mock_input,
                         exp_input_num=2,
-                        exp_output='zqian@umich.edu 195',
+                        exp_output='zqian@umich.edu 195\n',
                         input_val='mbox.txt')
 
     @patch('builtins.input', side_effect=['mbox-short.txt'])
@@ -640,12 +644,12 @@ class Exercise(unittest.TestCase):
         self.checkPrint(exercise='Exercise 10.1',
                         mock_input=mock_input,
                         exp_input_num=1,
-                        exp_output='cwen@iupui.edu 5',
+                        exp_output='cwen@iupui.edu 5\n',
                         input_val='mbox-short.txt')
         self.checkPrint(exercise='Exercise 10.1',
                         mock_input=mock_input,
                         exp_input_num=2,
-                        exp_output='zqian@umich.edu 195',
+                        exp_output='zqian@umich.edu 195\n',
                         input_val='mbox.txt')
 
     @patch('builtins.input', side_effect=['mbox-short.txt'])
