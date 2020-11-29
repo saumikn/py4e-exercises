@@ -5,7 +5,8 @@ from nbformat import read
 
 def get_source(exercise):
     chapter = exercise.split()[1].split('.')[0]
-    paths = {'1':'01-intro.ipynb',
+    paths = {'0':'README.ipynb',
+             '1':'01-intro.ipynb',
              '2':'02-variables.ipynb',
              '3':'03-conditional.ipynb',
              '4':'04-functions.ipynb',
@@ -97,7 +98,8 @@ class Exercise(unittest.TestCase):
                     print(error, file=sys.stderr)
                 else:
                     print(f"Error:    Wrong Value", file=sys.stderr)
-                    print(f"Input:    {input_val}", file=sys.stderr)
+                    if mock_input:
+                        print(f"Input:    {input_val}", file=sys.stderr)
                     print(f"Expected: {repr(exp_output)}", file=sys.stderr)
                     print(f"Actual:   {repr(self.temp_out.getvalue())}", file=sys.stderr)
         except:
@@ -114,6 +116,16 @@ class Exercise(unittest.TestCase):
             except:
                 self.errors = True
                 raise
+
+    ################################
+    ########## Chapter 01 ##########
+    ################################
+    def test_exercise_0_2(self):
+        self.checkMC('Exercise 0.2', 'c')
+
+    def test_exercise_0_3(self):
+        self.checkPrint(exercise='Exercise 0.3',
+                        exp_output="Hello World!\n")
 
     ################################
     ########## Chapter 01 ##########
@@ -534,6 +546,7 @@ class Exercise(unittest.TestCase):
                         exp_output=['1','hello','9'],
                         input_val='8,1,hello,9,world',
                         output_type=list)
+
     @patch('builtins.input', side_effect=['8,1,hello,9,world'])
     def test_exercise_8_1_2(self, mock_input):
         self.checkPrint(exercise='Exercise 8.1.2',
