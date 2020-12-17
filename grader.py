@@ -5,7 +5,7 @@ from nbformat import read
 
 def get_source(exercise):
     chapter = exercise.split()[1].split('.')[0]
-    paths = {'0':'README.ipynb',
+    paths = {'0':'00-getting-started.ipynb',
              '1':'01-intro.ipynb',
              '2':'02-variables.ipynb',
              '3':'03-conditional.ipynb',
